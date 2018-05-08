@@ -25,7 +25,8 @@ import android.widget.Toast;
 public class Layout1 extends LayoutView
 {
 	public RelativeLayout tvLayout, lay1;
-	private FcTextView mItem1, mItem2, mItem3, mItem4, mItem5, mItem6, mItem7, mItem8, mItem9, mItem10;
+	private FcTextView mItem1, mItem2, mItem3, mItem4, mItem5, mItem6, mItem7, mItem8, mItem9,
+					mItem10;
 
 	/** 异常信息Panel */
 	private ViewGroup errorPanel;
@@ -150,12 +151,6 @@ public class Layout1 extends LayoutView
 				LoadImageTask task = new LoadImageTask( context, tvLayout );
 				task.execute( tvImageUrl );
 			}
-			// else
-			// {
-			// tvAction = null;
-			// tvImageUrl = null;
-			// handler.post( showLiveR );
-			// }
 		}
 		else if ( firstreFreshTV )
 		{
@@ -216,21 +211,6 @@ public class Layout1 extends LayoutView
 		super.sendMsg();
 	}
 
-	// private Handler handler = new Handler()
-	// {
-	// public void handleMessage( android.os.Message msg )
-	// {
-	// switch( msg.what )
-	// {
-	// case 0:
-	// Log.i( TAG, "handler 0" );
-	// default:
-	// break;
-	// }
-	//
-	// };
-	// };
-
 	public void playDvbLive()
 	{
 		MovieInfo info = mDBManager.getInfo( tvLayout.getTag().toString() );
@@ -253,7 +233,7 @@ public class Layout1 extends LayoutView
 		{
 			return;
 		}
-		
+
 		context.registerDvbMsgListen();
 		DVBPlayer.getInstance().stop();
 		// 先隐藏直播相关提示
@@ -340,29 +320,9 @@ public class Layout1 extends LayoutView
 				}
 				else if ( v == mItem7 )
 				{
-					// String action =
-					// "open_app|by_pkg_activity|com.gitvvideo|com.qiyi.video.ui.search.QSearchActivity|";
-					// FCActionTool.forward( mContext, action, "99900188",
-					// Launcher.APP_KEY_ID );
-					// if ( getsharedPreferences( context ) == null )
-					// {
-					// return;
-					// }
-					// Intent intent = new Intent();
-					// intent.setAction( "com.hudong.action.DETAIL" );
-					// intent.putExtra( "id", "100000001" );
-					// context.startActivity( intent );
 				}
 				else if ( v == mItem8 )
 				{
-					// if ( getsharedPreferences( context ) == null )
-					// {
-					// return;
-					// }
-					// String action =
-					// "open_app|by_pkg_activity|com.gitvvideo|com.qiyi.video.ui.search.QSearchActivity|";
-					// FCActionTool.forward( mContext, action, "99900188",
-					// Launcher.APP_KEY_ID );
 				}
 				return;
 			}
@@ -388,7 +348,8 @@ public class Layout1 extends LayoutView
 				if ( ApkHelper.isApkInstalled( context, pkg ) )// 先检查应用是否存在
 				{
 					Log.i( TAG, "server_action ==" + server_action );
-					FCActionTool.forward( mContext, server_action, "99900188", Launcher.APP_KEY_ID );
+					FCActionTool.forward( mContext, server_action, "99900188",
+									Launcher.APP_KEY_ID );
 				}
 				else
 				{
@@ -421,36 +382,10 @@ public class Layout1 extends LayoutView
 				{
 					if ( ApkHelper.isApkInstalled( context, "com.hudong.vod" ) )// 先检查应用是否存在
 					{
-						// if ( mRecommendIds != null )
-						// {
-						// String columnID = "";
-						// Intent intent = new Intent();
-						// if ( !manager.isTagInside( "700" ) )
-						// {
-						// if ( mRecommendIds.length > 1 )
-						// {
-						// if ( v == mItem7 )
-						// {
-						// columnID = mRecommendIds[7];
-						// intent.setAction( "com.hudong.action.DETAIL" );
-						// intent.putExtra( "id", columnID );
-						// Log.i( TAG, "columnID==" + columnID );
-						// context.startActivity( intent );
-						// }
-						// if ( v == mItem8 )
-						// {
-						// columnID = mRecommendIds[8];
-						// intent.setAction( "com.hudong.action.DETAIL" );
-						// intent.putExtra( "id", columnID );
-						// Log.i( TAG, "columnID==" + columnID );
-						// context.startActivity( intent );
-						// }
-						// }
-						// }
-						// }
 					}
 					Log.i( TAG, "no appid click else : " + server_action );
-					FCActionTool.forward( mContext, server_action, "99900188", Launcher.APP_KEY_ID );
+					FCActionTool.forward( mContext, server_action, "99900188",
+									Launcher.APP_KEY_ID );
 				}
 
 			}
@@ -491,8 +426,8 @@ public class Layout1 extends LayoutView
 
 	public void showError( String errorStr, String errorCode, long duration )
 	{
-		Log.i( TAG, "showError--errorStr==" + errorStr + "--errorCode==" + errorCode + "--duration=="
-						+ duration );
+		Log.i( TAG, "showError--errorStr==" + errorStr + "--errorCode==" + errorCode
+						+ "--duration==" + duration );
 		Log.i( TAG, "showError" );
 		if ( errorPanelTimer != null )
 		{
@@ -558,87 +493,4 @@ public class Layout1 extends LayoutView
 		Log.i( TAG, "focused:" + focused );
 		isPlay = focused;
 	}
-
-	// private static String[] mRecommendUrls;
-
-	// private static String[] getRecommendNames( Context context )
-	// {
-	// if ( getsharedPreferences( context ) != null )
-	// {
-	// if ( mRecommendUrls == null || mRecommendUrls.length <= 1 )
-	// {
-	// String RecommendUrls = getsharedPreferences( context ).getString(
-	// "recommendUrls",
-	// "" );
-	// Log.i( TAG, "RecommendUrls" + RecommendUrls );
-	// mRecommendUrls = RecommendUrls.split( "\\|" );
-	// }
-	//
-	// return mRecommendUrls;
-	// }
-	// return null;
-	// }
-
-	// private static String[] mRecommendIds;
-
-	// private static String[] getRecommendIds( Context context )
-	// {
-	// if ( getsharedPreferences( context ) != null )
-	// {
-	// if ( mRecommendIds == null || mRecommendIds.length <= 1 )
-	// {
-	// String RecommendIds = getsharedPreferences( context )
-	// .getString( "recommendIds", "" );
-	// Log.i( TAG, "RecommendIds" + RecommendIds );
-	// mRecommendIds = RecommendIds.split( "\\|" );
-	// }
-	//
-	// return mRecommendIds;
-	// }
-	// return null;
-	// }
-
-	// private static SharedPreferences mSharedPreferences = null;
-
-	// private static SharedPreferences getsharedPreferences( Context context )
-	// {
-	// if ( mSharedPreferences == null )
-	// {
-	// Context otherAppsContext;
-	// try
-	// {
-	// otherAppsContext = context.createPackageContext( "com.hudong.vod",
-	// Context.CONTEXT_IGNORE_SECURITY );
-	// mSharedPreferences = otherAppsContext.getSharedPreferences(
-	// "hudong_live",
-	// Context.MODE_MULTI_PROCESS );
-	// }
-	// catch ( NameNotFoundException e )
-	// {
-	// e.printStackTrace();
-	// }
-	// }
-	//
-	// return mSharedPreferences;
-	// }
-
-	// private void setImage()
-	// {
-	// for ( int i = 6; i < 8; i++ )
-	// {
-	// if ( i == 6 )
-	// {
-	// MovieInfo info = new MovieInfo();
-	// info.setImg_h( mRecommendUrls[7] );
-	// initItem( mItems[i], info, "img_h" );
-	// }
-	// else
-	// {
-	// MovieInfo info = new MovieInfo();
-	// info.setImg_h( mRecommendUrls[8] );
-	// initItem( mItems[i], info, "img_h" );
-	// }
-	//
-	// }
-	// }
 }

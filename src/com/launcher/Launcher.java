@@ -179,7 +179,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 		isFirstRun = true;
 		if ( backgroudInfo != null )
 		{
-			CommonImageUtil.saveLauncherBgImageToFile( backgroudInfo.getImg_full(), handler, false );
+			CommonImageUtil.saveLauncherBgImageToFile( backgroudInfo.getImg_full(), handler,
+							false );
 		}
 
 		updatePre = getSharedPreferences( UPDATE_DATA, Context.MODE_PRIVATE );
@@ -197,17 +198,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 						Thread.sleep( 500 );
 					}
 					handler.sendEmptyMessage( 2 );
-					Launcher.this.runOnUiThread( new Runnable()
-					{
-
-						@Override
-						public void run()
-						{
-							// initView();
-							// initCallBalk();
-						}
-					} );
-
 				}
 				catch ( Exception ex )
 				{
@@ -374,17 +364,7 @@ public class Launcher extends Activity implements OnItemFocusListener
 			// 已经激活
 			if ( VPD.isActivated() == 0 )
 			{
-				// new BootToLiveManager();
-				// if ( ( manager.isTagInside( "103" ) ) )// 103坑位是直播小窗口
-				// {
-				// MovieInfo info = manager.getInfo( "103" );
-				// if ( info != null )// 如果此坑位有配置信息，则不自动进入直播
-				// {
-				// return;
-				// }
-				// }
 				Log.i( TAG, "已经激活" );
-
 				BootToLiveManager.delayStartPkg( Launcher.this, "com.dvb.live", durion );
 			}
 		}
@@ -697,53 +677,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 		}
 	}
 
-	// private Handler mTextHandler = new Handler()
-	// {
-	// public void handleMessage( Message msg )
-	// {
-	// switch( msg.what )
-	// {
-	// case 0:
-	// if ( adIndex >= strings.size() )
-	// {
-	// adIndex = 0;
-	// }
-	// showHorizonOSDByCount( strings.get( adIndex ) );
-	// adIndex++;
-	// break;
-	// default:
-	// break;
-	// }
-	// };
-	// };
-	//
-	// /**
-	// * 水平按次数滚动
-	// *
-	// * @param str
-	// * @param showCount
-	// */
-	// public void showHorizonOSDByCount( String str )
-	// {
-	// autoScrollTextView.setVisibility( View.GONE );
-	// // 有问题
-	// autoScrollTextView.stopScroll();
-	// autoScrollTextView.setContent( str);
-	// Log.e( "String-----", str );
-	// autoScrollTextView.setVisibility( View.VISIBLE );
-	// bringToFront( autoScrollTextView );
-	// }
-	//
-	// // 水平单次滚动完的回调
-	// private Handler osdHCountHandler = new Handler()
-	// {
-	// @Override
-	// public void handleMessage( Message msg )
-	// {
-	// mTextHandler.sendEmptyMessage( 0 );
-	// }
-	// };
-
 	/**
 	 * 使view显示在最上层
 	 * 
@@ -770,9 +703,10 @@ public class Launcher extends Activity implements OnItemFocusListener
 	public void getAdSwticher( final Context context )
 	{
 		Log.i( TAG, "getAdSwticher" );
-		final SharedPreferences updatePre = context.getSharedPreferences( CommonConstant.UPDATE_AD_DATA,
-						Context.MODE_PRIVATE );
-		String m_last_update = updatePre.getString( CommonConstant.UPDATE_AD_DATA_KEY, "1900-01-01 00:00:00" );
+		final SharedPreferences updatePre = context.getSharedPreferences(
+						CommonConstant.UPDATE_AD_DATA, Context.MODE_PRIVATE );
+		String m_last_update = updatePre.getString( CommonConstant.UPDATE_AD_DATA_KEY,
+						"1900-01-01 00:00:00" );
 		String result = updatePre.getString( CommonConstant.UPDATE_AD_RESULT_KEY, "" );
 		if ( "".equals( result ) )
 		{
@@ -861,9 +795,11 @@ public class Launcher extends Activity implements OnItemFocusListener
 			{
 				// 设置切入动画
 
-				tvNotice.setInAnimation( AnimationUtils.loadAnimation( Launcher.this, R.anim.slide_in_bottom ) );
+				tvNotice.setInAnimation( AnimationUtils.loadAnimation( Launcher.this,
+								R.anim.slide_in_bottom ) );
 				// 设置切出动画
-				tvNotice.setOutAnimation( AnimationUtils.loadAnimation( Launcher.this, R.anim.slide_out_up ) );
+				tvNotice.setOutAnimation( AnimationUtils.loadAnimation( Launcher.this,
+								R.anim.slide_out_up ) );
 			}
 			// items是一个字符串列表，index就是动态的要显示的items中的索引
 			tvNotice.setText( text );
@@ -874,13 +810,10 @@ public class Launcher extends Activity implements OnItemFocusListener
 	@SuppressWarnings( "deprecation" )
 	private void refreshBackGround()
 	{
-		// String filePath = "/data/data/" +
-		// getApplicationContext().getPackageName()
-		// + "/image/bg.png";
 		String imageLauncherBgPath = SystemProperties.get( "fc.config.path", "/fc/config/" )
 						+ "launcher_bg.png";
 
-		Log.i( "xxx", "imageLauncherBgPath==" + imageLauncherBgPath );
+		Log.i( TAG, "imageLauncherBgPath==" + imageLauncherBgPath );
 		Bitmap bm = CommonFileUtil.decodeImage( imageLauncherBgPath );
 		if ( bm != null )
 		{
@@ -1112,41 +1045,12 @@ public class Launcher extends Activity implements OnItemFocusListener
 		String tag = intent.getStringExtra( "tag" );
 		String title = intent.getStringExtra( "title" );
 		String packagename = intent.getStringExtra( "package" );
-		// final int page = intent.getIntExtra( "page", 0 );
-		// if ( page == 4 )
-		// {
-		// mMenu5.getViewTreeObserver().addOnGlobalLayoutListener( new
-		// OnGlobalLayoutListener()
-		// {
-		//
-		// @Override
-		// public void onGlobalLayout()
-		// {
-		// handler.postDelayed( new Runnable()
-		// {
-		//
-		// @Override
-		// public void run()
-		// {
-		// mMenu5.requestFocus();
-		//
-		// }
-		// }, 300 );
-		//
-		// mMenu5.getViewTreeObserver().removeGlobalOnLayoutListener( this );
-		//
-		// }
-		//
-		// } );
-		// }
-		// Bitmap bitmap = intent.getParcelableExtra( "icon" );
 		Bitmap bitmap = BitMapManager.getMapManager().getBitMap();
 		if ( tag != null && title != null && packagename != null && bitmap != null )
 		{
 			lay.refreshAddedItem( manager, tag, title, packagename, bitmap );// 刷新Add添加APK
 			BitMapManager.getMapManager().setBitMap( null );
 		}
-
 		if ( page == 0 )
 		{
 			Log.i( TAG, "refreshAddItem onNewIntent" );
@@ -1199,19 +1103,16 @@ public class Launcher extends Activity implements OnItemFocusListener
 		}
 		else
 		{
-			// DVBPlayer.getInstance().stop();
 			iv_logo.setVisibility( View.GONE );
 			ll_main.setVisibility( View.VISIBLE );
 			if ( page == 0 )
 			{
 				( ( Layout1 ) layout1 ).setPlay( true );
 				layout1.playDvbLive();
-				// play();
 				isPlay = true;
 			}
 		}
 
-		// isPlay = false;
 		Log.i( TAG, "onResume isPlay:" + isPlay );
 
 		if ( Integer.parseInt( FCProviderResolver.getInstance().init( this )
@@ -1290,11 +1191,11 @@ public class Launcher extends Activity implements OnItemFocusListener
 			}
 			return true;
 		}
-		if ( keyCode == KeyEvent.KEYCODE_0 || keyCode == KeyEvent.KEYCODE_1 || keyCode == KeyEvent.KEYCODE_2
-						|| keyCode == KeyEvent.KEYCODE_3 || keyCode == KeyEvent.KEYCODE_4
-						|| keyCode == KeyEvent.KEYCODE_5 || keyCode == KeyEvent.KEYCODE_6
-						|| keyCode == KeyEvent.KEYCODE_7 || keyCode == KeyEvent.KEYCODE_8
-						|| keyCode == KeyEvent.KEYCODE_9 )
+		if ( keyCode == KeyEvent.KEYCODE_0 || keyCode == KeyEvent.KEYCODE_1
+						|| keyCode == KeyEvent.KEYCODE_2 || keyCode == KeyEvent.KEYCODE_3
+						|| keyCode == KeyEvent.KEYCODE_4 || keyCode == KeyEvent.KEYCODE_5
+						|| keyCode == KeyEvent.KEYCODE_6 || keyCode == KeyEvent.KEYCODE_7
+						|| keyCode == KeyEvent.KEYCODE_8 || keyCode == KeyEvent.KEYCODE_9 )
 		{
 			KeyOperation.doAction( Launcher.this, keyCode, keyMap );
 		}
@@ -1420,7 +1321,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				// version;
 				String url = UriUtil.createUrl( "api/ad/getAdInfo" ) + "?adid=18&version=" + version
 								+ "&mac=" + FCTvDevice.getEthMacAddress() + "&sn="
-								+ CommonDeviceUtil.getDecodedSN() + "&ca=" + CommonDeviceUtil.getCa();
+								+ CommonDeviceUtil.getDecodedSN() + "&ca="
+								+ CommonDeviceUtil.getCa();
 				try
 				{
 					String jsonResult = FCHttp.httpForGetMethod( url );
@@ -1554,7 +1456,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 
 				focus.setVisibility( View.GONE );
 				page = 0;
-				// layout2.channeLv.setSelection( 0 );
 				scrollView.gotoPage( page );
 			}
 
@@ -1695,23 +1596,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 			}
 
 			break;
-		// case R.id.lay2_item7:
-		// case R.id.lay2_item8:
-		// if ( isPlay )
-		// {
-		// layout1.stopDvbLive();
-		// }
-		// isPlay = false;
-		// if ( page != 1 )
-		// {
-		// focus.setVisibility( View.GONE );
-		// page = 1;
-		// mMenu2.setSelected( true );
-		// Log.i( "ttt", "page!=1" );
-		// scrollView.gotoPage( page );
-		// }
-
-		// break;
 		case R.id.lay3_item1:
 		case R.id.lay3_item2:
 		case R.id.lay3_item3:
@@ -1760,20 +1644,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 				scrollView.gotoPage( page );
 			}
 			break;
-		// case R.id.lay4_item3:
-		// case R.id.lay4_item4:
-		// if ( isPlay )
-		// {
-		// layout1.stopDvbLive();
-		// }
-		// isPlay = false;
-		// if ( page != 3 )
-		// {
-		// //focus.setVisibility( View.GONE );
-		// page = 3;
-		// scrollView.gotoPage( page );
-		// }
-		// break;
 		case R.id.lay5_item1:
 			if ( isPlay )
 			{
@@ -2008,7 +1878,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				return;
 			}
 
-			if ( v == mMenu1 || v == mMenu2 || v == mMenu3 || v == mMenu5 || v == mMenu6 || v == mMenu4 )
+			if ( v == mMenu1 || v == mMenu2 || v == mMenu3 || v == mMenu5 || v == mMenu6
+							|| v == mMenu4 )
 			{
 				x = location[0] - CommonUtil.dip2px( this, 20 );
 				y = location[1] - CommonUtil.dip2px( this, 20 );
@@ -2144,7 +2015,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 
 				String action = "open_app|by_uri|android.intent.action.VIEW|fc://com.smartcity/[category?cid=0&cname=&priority_mode=&tpl_type=&page=&news_list=&news_view=&icon=]";
 				FCActionTool.forward( Launcher.this, action, "99900188", Launcher.APP_KEY_ID );
-				// ApkHelper.goAppByPkg( Launcher.this, "com.smartcity" );
 
 			}
 			if ( v == mMenu4 )
@@ -2160,10 +2030,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 
 				FCActionTool.forward( Launcher.this, "open_app|by_pkg|com.tt.emall|", "99900188",
 								Launcher.APP_KEY_ID );
-				// ApkHelper.goAppByPkg( Launcher.this, "com.tt.emall" );
-				// ApkHelper.goAppByPkg( Launcher.this, "com.explorer" );
-				// ApkHelper.showLogo( Launcher.this, "400", 1, "com.explorer"
-				// );
 			}
 			if ( v == mMenu5 )
 			{
@@ -2307,8 +2173,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 		@Override
 		protected String doInBackground( Void... params )
 		{
-			// String weatherurl = server +
-			// "/api/helper/getCalendar?skin=white";
 			String weatherurl = UriUtil.createUrl( "api/helper/getCalendar" ) + "?skin=white";
 			Log.i( TAG, "weatherurl==" + weatherurl );
 			String tmp_city = FCCityUtil.getCity( Launcher.this );
@@ -2338,22 +2202,21 @@ public class Launcher extends Activity implements OnItemFocusListener
 
 					if ( object.getInt( "ret" ) == 0 )
 					{
-						JSONObject wObject = object.getJSONObject( "weather" ).getJSONObject( "current" );
+						JSONObject wObject = object.getJSONObject( "weather" )
+										.getJSONObject( "current" );
 						if ( wObject != null )
 						{
-							cityText = object.getString( "city" ) == null ? "" : object.getString( "city" );
+							cityText = object.getString( "city" ) == null ? ""
+											: object.getString( "city" );
 							mCity.setText( cityText );
-							String temperature = wObject.getString( "temperature" ) == null ? "" : wObject
-											.getString( "temperature" );
+							String temperature = wObject.getString( "temperature" ) == null ? ""
+											: wObject.getString( "temperature" );
 							mTemp.setText( temperature );
 							mWeather.setVisibility( View.VISIBLE );
-							String weather = wObject.getString( "condition" ) == null ? "" : wObject
-											.getString( "condition" );
+							String weather = wObject.getString( "condition" ) == null ? ""
+											: wObject.getString( "condition" );
 							Log.i( TAG, "weather==" + weather );
 							mWeather.setText( weather );
-							// loadImage( wObject.getString( "icon" ) == null ?
-							// ""
-							// : wObject.getString( "icon" ), mWeather );
 						}
 					}
 				}
@@ -2417,16 +2280,20 @@ public class Launcher extends Activity implements OnItemFocusListener
 			{
 				info = new MovieInfo();
 				info.setTag( object.getString( "tag" ) == null ? "" : object.getString( "tag" ) );
-				info.setTitle( object.getString( "title" ) == null ? "" : object.getString( "title" ) );
-				info.setAction( object.getString( "action" ) == null ? "" : object.getString( "action" ) );
+				info.setTitle( object.getString( "title" ) == null ? ""
+								: object.getString( "title" ) );
+				info.setAction( object.getString( "action" ) == null ? ""
+								: object.getString( "action" ) );
 
-				info.setApp_package_name( object.getString( "app_package_name" ) == null ? "" : object
-								.getString( "app_package_name" ) );
-				info.setApp_id( object.getString( "app_id" ) == null ? "" : object.getString( "app_id" ) );
+				info.setApp_package_name( object.getString( "app_package_name" ) == null ? ""
+								: object.getString( "app_package_name" ) );
+				info.setApp_id( object.getString( "app_id" ) == null ? ""
+								: object.getString( "app_id" ) );
 
 				if ( object.has( "img_v" ) )
 				{
-					info.setImg_v( object.getString( "img_v" ) == null ? "" : object.getString( "img_v" ) );
+					info.setImg_v( object.getString( "img_v" ) == null ? ""
+									: object.getString( "img_v" ) );
 				}
 				else
 				{
@@ -2434,7 +2301,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				}
 				if ( object.has( "img_h" ) )
 				{
-					info.setImg_h( object.getString( "img_h" ) == null ? "" : object.getString( "img_h" ) );
+					info.setImg_h( object.getString( "img_h" ) == null ? ""
+									: object.getString( "img_h" ) );
 				}
 				else
 				{
@@ -2443,7 +2311,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 
 				if ( object.has( "img_s" ) )
 				{
-					info.setImg_s( object.getString( "img_s" ) == null ? "" : object.getString( "img_s" ) );
+					info.setImg_s( object.getString( "img_s" ) == null ? ""
+									: object.getString( "img_s" ) );
 				}
 				else
 				{
@@ -2451,7 +2320,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				}
 				if ( object.has( "img_h2" ) )
 				{
-					info.setImg_h2( object.getString( "img_h2" ) == null ? "" : object.getString( "img_h2" ) );
+					info.setImg_h2( object.getString( "img_h2" ) == null ? ""
+									: object.getString( "img_h2" ) );
 				}
 				else
 				{
@@ -2459,7 +2329,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				}
 				if ( object.has( "img_h3" ) )
 				{
-					info.setImg_h3( object.getString( "img_h3" ) == null ? "" : object.getString( "img_h3" ) );
+					info.setImg_h3( object.getString( "img_h3" ) == null ? ""
+									: object.getString( "img_h3" ) );
 				}
 				else
 				{
@@ -2467,10 +2338,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				}
 				if ( object.has( "img_full" ) )
 				{
-					info.setImg_full( object.getString( "img_full" ) == null ? "" : object
-									.getString( "img_full" ) );
-					// CommonImageUtil.saveLauncherBgImageToFile(
-					// info.getImg_full(), handler );
+					info.setImg_full( object.getString( "img_full" ) == null ? ""
+									: object.getString( "img_full" ) );
 				}
 				else
 				{
@@ -2492,9 +2361,10 @@ public class Launcher extends Activity implements OnItemFocusListener
 		@Override
 		protected String doInBackground( Void... params )
 		{
-			String url = UriUtil.createUrl( "api/system/getLauncherTag" ) + "?version=" + version + "&sn="
-							+ deviceSN + "&deviceid=" + deviceID + "&appkeyid=" + APP_KEY_ID
-							+ "&api_data_ver=" + updatePre.getString( "api_data_ver", "" ) + "&mac="
+			String url = UriUtil.createUrl( "api/system/getLauncherTag" ) + "?version=" + version
+							+ "&sn=" + deviceSN + "&deviceid=" + deviceID + "&appkeyid="
+							+ APP_KEY_ID + "&api_data_ver="
+							+ updatePre.getString( "api_data_ver", "" ) + "&mac="
 							+ FCTvDevice.getEthMacAddress() + "&ca=" + CommonDeviceUtil.getCa();
 			Log.i( TAG, "DataTask--doInBackground--url==" + url );
 			return FCHttp.httpForGetMethod( url );
@@ -2512,19 +2382,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 					JSONObject object = new JSONObject( new String( result ) );
 					if ( object != null && object.length() > 0 && object.getInt( "ret" ) == 0 )
 					{
-						// String last_update = object.getString( "last_update"
-						// ) == null ? "1900-01-01 00:00:00"
-						// : object.getString( "last_update" );
-						//
-						// String m_last_update = updatePre.getString(
-						// "last_update", "1900-01-01 00:00:00" );
-						// Log.i( TAG, "DataTask last_update : " + last_update
-						// );
-						// Log.i( TAG, "DataTask m_last_update : " +
-						// m_last_update );
-						//
-						// if ( !last_update.equals( m_last_update ) )
-						// {
 						VPDJni VPD = new VPDJni();
 						// 已经激活
 						if ( !( VPD.isActivated() == 0 ) )
@@ -2533,7 +2390,6 @@ public class Launcher extends Activity implements OnItemFocusListener
 						}
 						Log.i( TAG, "DataTask update" );
 						Editor editor = updatePre.edit();
-						// editor.putString( "last_update", last_update );
 						editor.putString( "api_data_ver", object.getString( "api_data_ver" ) );
 						editor.commit();
 
@@ -2695,7 +2551,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 				MovieInfo backgroudInfo = manager.getInfo( "000" );
 				if ( backgroudInfo != null )
 				{
-					CommonImageUtil.saveLauncherBgImageToFile( backgroudInfo.getImg_full(), handler, true );
+					CommonImageUtil.saveLauncherBgImageToFile( backgroudInfo.getImg_full(), handler,
+									true );
 				}
 				break;
 			case 4:
@@ -2743,33 +2600,12 @@ public class Launcher extends Activity implements OnItemFocusListener
 					if ( base.picFormat.equals( ADPICBase.PICFORMAT.GIF ) )
 					{
 						Log.i( TAG, "base.picFormat.equals( ADPICBase.PICFORMAT.GIF )" );
-						// try
-						// {
-						// FileInputStream fis = new FileInputStream(
-						// base.picPath
-						// );
-						// bootImageview.setVisibility( View.GONE );
-						// bootGifView.setVisibility( View.VISIBLE );
-						// bootGifView.setGifImageType( GifImageType.WAIT_FINISH
-						// );
-						// bootGifView.setGifImage( fis );
-						// }
-						// catch ( FileNotFoundException e )
-						// {
-						// e.printStackTrace();
-						// }
 
 					}
-					// else
-					// {
-					// Log.i( TAG,
-					// "!!!base.picFormat.equals( ADPICBase.PICFORMAT.GIF )" );
 					Bitmap bitmap = ImageLoader.decodeSampledBitmapFromResource( base.picPath );
 					iv_logo.setVisibility( View.VISIBLE );
 					ll_main.setVisibility( View.GONE );
 					iv_logo.setImageBitmap( bitmap );
-
-					// }
 					handler.postDelayed( toLiveR, 0 * 1000 );
 
 				}
@@ -2804,7 +2640,7 @@ public class Launcher extends Activity implements OnItemFocusListener
 				}
 				catch ( Exception e )
 				{
-			
+
 				}
 				Log.i( TAG, "handler--time==" + time );
 				if ( time != 0 )
@@ -3433,8 +3269,10 @@ public class Launcher extends Activity implements OnItemFocusListener
 				layout1.showError( "错误的操作码或序列", errorCodeString, 0 );
 			}
 			else if ( "F101-2".equals( errorCodeString ) || "E101-3".equals( errorCodeString )
-							|| "E101-5".equals( errorCodeString ) || "E101-8".equals( errorCodeString )
-							|| "E101-27".equals( errorCodeString ) || "E101-28".equals( errorCodeString )
+							|| "E101-5".equals( errorCodeString )
+							|| "E101-8".equals( errorCodeString )
+							|| "E101-27".equals( errorCodeString )
+							|| "E101-28".equals( errorCodeString )
 							|| "E101-36".equals( errorCodeString ) )
 			{
 				layout1.showError( "未完成定义", errorCodeString, 0 );
@@ -4231,9 +4069,8 @@ public class Launcher extends Activity implements OnItemFocusListener
 			String deviceVer = FCTvDevice.getDeviceVersion();
 			if ( deviceVer != null && deviceVer.contains( "SXYQ" ) )
 			{
-				// if ( LauncherMainActivity.isFirstRun &&
-				// !CommonUtil.isBootLive( context ))
-				if ( 1 == Integer.parseInt( SystemProperties.get( "sys.dvb.live.firstinit", "1" ) ) )
+				if ( 1 == Integer
+								.parseInt( SystemProperties.get( "sys.dvb.live.firstinit", "1" ) ) )
 				{
 					// 如果是山西阳泉版本，且是开机第一次启动，则播放serviceId = 301的频道
 					Log.i( "DVBPlayer",

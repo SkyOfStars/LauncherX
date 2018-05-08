@@ -143,7 +143,6 @@ public class Layout5 extends LayoutView
 				return false;
 			}
 		} );
-		// popupWindow.setAnimationStyle(R.style.AnimationRightFade);
 		popupWindow.setOutsideTouchable( false );
 	}
 
@@ -254,12 +253,6 @@ public class Layout5 extends LayoutView
 						MovieInfo info = manager.getInfo( tag );
 						if ( info != null )
 						{
-							// if ( mItems[m] == mItem1 )
-							// {
-							// initItem( mItems[m], info, "img_v" );
-							// }
-							// else
-							// {
 							if ( !TextUtils.isEmpty( info.getImg_h() ) )
 							{
 								initItem( mItems[m], info, "img_h" );
@@ -505,10 +498,7 @@ public class Layout5 extends LayoutView
 							return;
 
 						}
-						// Log.i( TAG, "onClick10" );
-						//
-						// Toast.makeText( mContext, "应用未安装", Toast.LENGTH_SHORT
-						// ).show();
+
 					}
 				}
 			}
@@ -567,12 +557,12 @@ public class Layout5 extends LayoutView
 
 				if ( manager.isAddTagInside( tag ) )
 				{
-					Log.i( "bbbb", "packagename1:" + packagename );
+					Log.i( TAG, "packagename1:" + packagename );
 					manager.updateInfo( tag, title, packagename );
 				}
 				else
 				{
-					Log.i( "bbbb", "packagename2:" + packagename );
+					Log.i( TAG, "packagename2:" + packagename );
 					manager.insertAddInfo( tag, title, packagename );
 				}
 
