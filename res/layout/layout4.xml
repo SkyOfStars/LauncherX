@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay4_item1"
+        android:layout_width="537dp"
+        android:layout_height="493dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusUp="@+id/lau_menu4"
+        android:tag="401"
+        custom:shadow="false"
+        custom:src="@drawable/m401"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay4_item2"
+        android:layout_width="537dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="628dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay5_item1"
+        android:nextFocusUp="@+id/lau_menu4"
+        android:tag="402"
+        custom:shadow="false"
+        custom:src="@drawable/m402"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay4_item3"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="628dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:tag="403"
+        custom:shadow="false"
+        custom:src="@drawable/m_4_3"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay4_item4"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="884dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay5_item1"
+        android:tag="404"
+        custom:shadow="false"
+        custom:src="@drawable/m_4_4"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+</RelativeLayout>

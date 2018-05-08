@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ca_error">
+        <item>非加扰节目</item>
+        <item>UTI安全芯片错误</item>
+        <item>UTI安全芯片无效</item>
+        <item>终端没有此运营商</item>
+        <item>NVRAM错误</item>
+        <item>没有信号</item>
+        <item>节目异常，请联系运营商</item>
+        <item>节目没有授权</item>
+        <item>节目解扰成功</item>
+        <item>节目区域限制播出</item>
+        <item>节目成人级别限制</item>
+        <item>指纹显示</item>
+        <item>购买信用受限</item>
+        <item>节目预览</item>
+        <item>产品已经购买</item>
+        <item>授权记录已达最大数目</item>
+        <item>未开户</item>
+        <item>条件禁播</item>
+        <item>密码已重置</item>
+        <item>连接服务器失败</item>
+        <item>本节目受DRM保护</item>
+        <item>UTI安全芯片锁定</item>
+        <item>UTI安全芯片解除锁定</item>
+        <item>区域错误，建议重启机顶盒</item>
+    </string-array>
+
+</resources>

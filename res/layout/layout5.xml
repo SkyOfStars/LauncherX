@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 本地应用 -->
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item1"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusUp="@+id/lau_menu5"
+        android:tag="501"
+        custom:shadow="false"
+        custom:src="@drawable/m_5_1"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item2"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="372dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusUp="@+id/lau_menu5"
+        android:tag="502"
+        custom:shadow="false"
+        custom:src="@drawable/m5_2"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item3"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="629dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusUp="@+id/lau_menu5"
+        android:tag="503"
+        custom:shadow="false"
+        custom:src="@drawable/m5_3"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item4"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="886dp"
+        android:layout_marginTop="23dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@+id/lay5_item8"
+        android:nextFocusRight="@+id/lay6_item1"
+        android:nextFocusUp="@+id/lau_menu5"
+        android:tag="504"
+        custom:shadow="false"
+        custom:src="@drawable/m5_4"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item5"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@+id/lay5_item5"
+        android:nextFocusLeft="@+id/lay4_item2"
+        android:tag="505"
+        custom:shadow="false"
+        custom:src="@drawable/m502"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item6"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="372dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@+id/lay5_item6"
+        android:tag="506"
+        custom:shadow="false"
+        custom:src="@drawable/m5_6"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item7"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="629dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@+id/lay5_item7"
+        android:tag="507"
+        custom:shadow="false"
+        custom:src="@drawable/lay6_img7"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay5_item8"
+        android:layout_width="281dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="886dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusDown="@+id/lay5_item8"
+        android:nextFocusRight="@+id/lay6_item1"
+        android:tag="508"
+        custom:shadow="false"
+        custom:src="@drawable/lay6_img8"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+</RelativeLayout>

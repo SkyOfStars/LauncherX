@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay6_item1"
+        android:layout_width="537dp"
+        android:layout_height="493dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginLeft="115dp"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay6_item2"
+        android:nextFocusUp="@+id/lau_menu6"
+        android:tag="601"
+        custom:shadow="false"
+        custom:src="@drawable/m_6_1"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay6_item2"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="628dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="23dp"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay6_item3"
+        android:nextFocusUp="@+id/lau_menu6"
+        android:tag="602"
+        custom:shadow="false"
+        custom:src="@drawable/m_6_2"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay6_item3"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="884dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="23dp"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay6_item3"
+        android:nextFocusUp="@+id/lau_menu6"
+        android:tag="603"
+        custom:shadow="false"
+        custom:src="@drawable/m_6_3"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay6_item4"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="628dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:tag="604"
+        custom:shadow="false"
+        custom:src="@drawable/m_6_4"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+    <com.launcher.widget.FcTextView
+        android:id="@+id/lay6_item5"
+        android:layout_width="280dp"
+        android:layout_height="259dp"
+        android:layout_marginLeft="884dp"
+        android:layout_marginTop="258dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nextFocusRight="@+id/lay6_item5"
+        android:tag="605"
+        custom:shadow="false"
+        custom:src="@drawable/m_6_5"
+        custom:textColor="@color/white"
+        custom:textSize="20sp" />
+
+</RelativeLayout>
